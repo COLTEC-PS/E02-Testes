@@ -22,6 +22,7 @@ public class QueueTest {
 
     @Test
     public void testfilaNaoEstaVazia() {
+    	fila.enfileirar(null);
         assertFalse(fila.estaVazia());
     }
 
@@ -51,7 +52,7 @@ public class QueueTest {
     }
 
     @Test
-    public void testDesenfileirar() {
+    public void testDesenfileirar() throws Exception  {
         fila.enfileirar(10);
         fila.enfileirar(100);
         fila.enfileirar(1000);
@@ -60,11 +61,11 @@ public class QueueTest {
         fila.desenfileirar();
         int retorno = fila.desenfileirar();
 
-        assertEquals(100, retorno);
+        assertEquals(10, retorno);
     }
 
     @Test(expected = java.lang.Exception.class)
-    public void testDesenfileirarFilaVazia() {
+    public void testDesenfileirarFilaVazia() throws Exception {
         fila.desenfileirar();
     }
 }
