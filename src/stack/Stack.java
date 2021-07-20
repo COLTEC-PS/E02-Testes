@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 
 public class Stack<Trem> {
@@ -18,12 +19,13 @@ public class Stack<Trem> {
         this.topo++;
     }
 
-    public Trem desempilhar() throws Exception {
+    public Trem desempilhar() throws EmptyStackException {
         if(this.estaVazia()) {
-            return null;
+            throw new EmptyStackException();
         }
-
-        return this.vetor.get(this.topo);
+        Trem trem = this.vetor.remove(topo-1);
+        this.topo--;
+        return trem;
     }
 
     public boolean estaVazia() {
