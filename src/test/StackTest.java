@@ -23,8 +23,19 @@ public class StackTest { //classe que contém todos os métodos de teste
 
     @Test
     public void testNotEmptyStack(){ // método que testa o método empilhar
-        stack.empilhar(10);
+        stack.empilhar(10); // insere um valor na pilha
+        stack.empilhar(20);
+        stack.empilhar(20);
         assertFalse(stack.estaVazia()); // assert testa se a pilha não está vazia
+    }
+
+    @Test
+    public void testSizeStack(){
+        stack.empilhar(10); // insere um valor na pilha
+        stack.empilhar(20);
+        stack.empilhar(30);
+        int size = stack.tamanho(); // executa o método que retorna o tamanho da pilha
+        assertEquals(3, size); // compara se o retorno do método é igual ao tamanho esperado (3)
     }
 
 }
