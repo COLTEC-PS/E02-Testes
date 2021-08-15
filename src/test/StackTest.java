@@ -1,10 +1,15 @@
 package test;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import stack.Stack;
 
 import static org.junit.Assert.*;
+
+import java.util.EmptyStackException;
 
 public class StackTest { //classe que contém todos os métodos de teste
 
@@ -48,6 +53,15 @@ public class StackTest { //classe que contém todos os métodos de teste
         assertEquals(20, popResult); // testa se o único valor que sobrou na pilha é o 20
     }
 
-    
+    @Rule
+    ExpectedException expectedException = ExpectedException.none();
+
+    @Test
+    public void testPopExeption() throws EmptyStackException {
+        stack.empilhar(10);
+        stack.desempilhar();
+        expectedException.expect(EmptyStackException.class);
+        expectedException.expectMessage(String.valueOf(EmptyStackException.class));
+    }
 
 }
