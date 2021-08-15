@@ -38,4 +38,16 @@ public class StackTest { //classe que contém todos os métodos de teste
         assertEquals(3, size); // compara se o retorno do método é igual ao tamanho esperado (3)
     }
 
+    @Test
+    public void testPushAndPop() throws Exception {
+        stack.empilhar(10); // insere um valor na pilha
+        stack.empilhar(20);
+        stack.empilhar(30);
+        int popResult = stack.desempilhar(); // retira valor da pilha
+        popResult = stack.desempilhar();
+        assertEquals(20, popResult); // testa se o único valor que sobrou na pilha é o 20
+    }
+
+    
+
 }
