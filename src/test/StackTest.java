@@ -53,15 +53,10 @@ public class StackTest { //classe que contém todos os métodos de teste
         assertEquals(20, popResult); // testa se o único valor que sobrou na pilha é o 20
     }
 
-    @Rule
-    ExpectedException expectedException = ExpectedException.none();
 
-    @Test
-    public void testPopExeption() throws EmptyStackException {
-        stack.empilhar(10);
+    @Test (expected = java.lang.Exception.class)
+    public void testPopExeption(){
         stack.desempilhar();
-        expectedException.expect(EmptyStackException.class);
-        expectedException.expectMessage(String.valueOf(EmptyStackException.class));
     }
 
 }
