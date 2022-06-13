@@ -1,4 +1,4 @@
-/*package test;
+package test;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +22,7 @@ public class QueueTest {
 
     @Test
     public void testfilaNaoEstaVazia() {
+        fila.enfileirar(1);
         assertFalse(fila.estaVazia());
     }
 
@@ -57,8 +58,8 @@ public class QueueTest {
         fila.enfileirar(1000);
         fila.enfileirar(0);
 
-        fila.desenfileirar();
         int retorno = fila.desenfileirar();
+        retorno = fila.desenfileirar();
 
         assertEquals(100, retorno);
     }
@@ -68,4 +69,3 @@ public class QueueTest {
         fila.desenfileirar();
     }
 }
-*/

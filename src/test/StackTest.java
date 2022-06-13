@@ -15,7 +15,7 @@ public class StackTest {
 
     @Before
     public void init(){
-        this.stack = new Stack<Integer>();
+        this.stack = new Stack<>();
 
     }
 
