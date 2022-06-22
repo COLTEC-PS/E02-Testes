@@ -17,11 +17,13 @@ public class QueueTest {
 
     @Test
     public void testFilaVazia() {
+        fila.enfileirar(1);
         assertTrue(fila.estaVazia());
     }
 
     @Test
     public void testfilaNaoEstaVazia() {
+
         assertFalse(fila.estaVazia());
     }
 
