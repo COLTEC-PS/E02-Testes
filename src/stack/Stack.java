@@ -3,22 +3,22 @@ package stack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stack<Trem> {
+public class Stack<String> {
 
-    private List<Trem> vetor;
+    private List<String> vetor;
     private int topo;
 
     public Stack (){
-        this.vetor = new ArrayList<Trem>();
+        this.vetor = new ArrayList<String>();
         this.topo = 0;
     }
 
-    public void empilhar(Trem x) {
+    public void empilhar(String x) {
         this.vetor.add(x);
         this.topo++;
     }
 
-    public Trem desempilhar() throws Exception {
+    public String desempilhar() throws Exception {
         if(this.estaVazia()) {
             return null;
         }
