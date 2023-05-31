@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import queue.Queue;
 
+
 import static org.junit.Assert.*;
 
 public class QueueTest {
@@ -17,12 +18,13 @@ public class QueueTest {
 
     @Test
     public void testFilaVazia() {
-        assertTrue(fila.estaVazia());
+        assertTrue(fila.filaVazia());
     }
 
     @Test
     public void testfilaNaoEstaVazia() {
-        assertFalse(fila.estaVazia());
+        fila.enfileirar(10);
+        assertFalse(fila.filaVazia());
     }
 
     @Test
@@ -51,7 +53,7 @@ public class QueueTest {
     }
 
     @Test
-    public void testDesenfileirar() {
+    public void testDesenfileirar() throws Exception {
         fila.enfileirar(10);
         fila.enfileirar(100);
         fila.enfileirar(1000);
@@ -64,7 +66,7 @@ public class QueueTest {
     }
 
     @Test(expected = java.lang.Exception.class)
-    public void testDesenfileirarFilaVazia() {
+    public void testDesenfileirarFilaVazia() throws Exception {
         fila.desenfileirar();
     }
 }
