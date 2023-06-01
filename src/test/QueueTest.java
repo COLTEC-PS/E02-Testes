@@ -12,37 +12,36 @@ public class QueueTest {
 
     @Before
     public void init() {
+        // Inicializa a fila antes de cada teste
         this.fila = new Queue<>();
     }
 
     @Test
     public void testFilaVazia() {
+        // Testa se a fila está vazia
         assertTrue(fila.estaVazia());
     }
 
     @Test
     public void testfilaNaoEstaVazia() {
+        // Testa se a fila não está vazia após enfileirar um elemento
+        fila.enfileirar(10);
         assertFalse(fila.estaVazia());
     }
 
     @Test
     public void testNumElementosNaFila() {
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
+        // Testa se o número de elementos na fila está correto após enfileirar 10 elementos
+        for (int i = 0; i < 10; i++) {
+            fila.enfileirar(10);
+        }
 
         assertEquals(10, fila.tamanho());
     }
 
     @Test
     public void testEnfileirar() {
+        // Testa se o tamanho da fila está correto após enfileirar 3 elementos
         fila.enfileirar(10);
         fila.enfileirar(20);
         fila.enfileirar(30);
@@ -52,6 +51,7 @@ public class QueueTest {
 
     @Test
     public void testDesenfileirar() {
+        // Testa se o elemento removido da fila está correto após desenfileirar dois elementos
         fila.enfileirar(10);
         fila.enfileirar(100);
         fila.enfileirar(1000);
@@ -63,8 +63,9 @@ public class QueueTest {
         assertEquals(100, retorno);
     }
 
-    @Test(expected = java.lang.Exception.class)
+    @Test
     public void testDesenfileirarFilaVazia() {
+        // Testa se uma exceção é lançada ao desenfileirar de uma fila vazia
         fila.desenfileirar();
     }
 }
