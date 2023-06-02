@@ -22,6 +22,7 @@ public class QueueTest {
 
     @Test
     public void testfilaNaoEstaVazia() {
+        this.fila.enfileirar(10);
         assertFalse(fila.estaVazia());
     }
 
