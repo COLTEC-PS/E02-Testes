@@ -6,65 +6,66 @@ import queue.Queue;
 
 import static org.junit.Assert.*;
 
-public class QueueTest {
+    public class QueueTest {
 
-    private Queue<Integer> fila;
+        private Queue<Integer> fila;
 
-    @Before
-    public void init() {
-        this.fila = new Queue<>();
+        @Before
+        public void init() {
+            this.fila = new Queue<>();
+        }
+
+        @Test
+        public void testFilaVazia() {
+            assertTrue(fila.empty());
+        }
+
+        @Test
+        public void testfilaNaoEstaVazia() {
+            this.fila.adicionar(10);
+            assertFalse(fila.empty());
+        }
+
+        @Test
+        public void testNumElementosNaFila() {
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+            fila.adicionar(10);
+
+            assertEquals(10, fila.tamanho());
+        }
+
+        @Test
+        public void testEnfileirar() {
+            fila.adicionar(10);
+            fila.adicionar(20);
+            fila.adicionar(30);
+
+            assertEquals(3, fila.tamanho());
+        }
+
+        @Test
+        public void testDesenfileirar() {
+            fila.adicionar(10);
+            fila.adicionar(100);
+            fila.adicionar(1000);
+            fila.adicionar(0);
+
+            fila.retirar();
+            int retorno = fila.retirar();
+
+            assertEquals(100, retorno);
+        }
+
+        @Test(expected = java.lang.Exception.class)
+        public void testDesenfileirarFilaVazia() {
+            fila.retirar();
+        }
     }
-
-    @Test
-    public void testFilaVazia() {
-        assertTrue(fila.estaVazia());
-    }
-
-    @Test
-    public void testfilaNaoEstaVazia() {
-        assertFalse(fila.estaVazia());
-    }
-
-    @Test
-    public void testNumElementosNaFila() {
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-        fila.enfileirar(10);
-
-        assertEquals(10, fila.tamanho());
-    }
-
-    @Test
-    public void testEnfileirar() {
-        fila.enfileirar(10);
-        fila.enfileirar(20);
-        fila.enfileirar(30);
-
-        assertEquals(3, fila.tamanho());
-    }
-
-    @Test
-    public void testDesenfileirar() {
-        fila.enfileirar(10);
-        fila.enfileirar(100);
-        fila.enfileirar(1000);
-        fila.enfileirar(0);
-
-        fila.desenfileirar();
-        int retorno = fila.desenfileirar();
-
-        assertEquals(100, retorno);
-    }
-
-    @Test(expected = java.lang.Exception.class)
-    public void testDesenfileirarFilaVazia() {
-        fila.desenfileirar();
-    }
-}
