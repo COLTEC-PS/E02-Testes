@@ -10,7 +10,7 @@ public class Stack<Trem> {
 
     public Stack (){
         this.vetor = new ArrayList<Trem>();
-        this.topo = 0;
+        this.topo = -1;
     }
 
     public void empilhar(Trem x) {
@@ -20,18 +20,21 @@ public class Stack<Trem> {
 
     public Trem desempilhar() throws Exception {
         if(this.estaVazia()) {
-            return null;
+            throw new Exception("A pilha esta vazia. Não é possivel desempilhar");
         }
+        Trem elementoDesempilhado = this.vetor.get(this.topo);
+        this.vetor.remove(this.topo);
+        this.topo--;
 
-        return this.vetor.get(this.topo);
+        return elementoDesempilhado;
     }
 
     public boolean estaVazia() {
-        return this.vetor.isEmpty();
+        return this.topo == -1;
     }
 
     public int tamanho() {
-        return this.vetor.size();
+        return this.topo +1;
     }
 }
 
