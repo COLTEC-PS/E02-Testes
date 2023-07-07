@@ -27,7 +27,7 @@ public class StackTest {
     // Outros testes de unidade
 
     @Test
-    public void testStackIsEmptyAfterPoppingAllElements() throws Exception {
+    public void testeEstaVazia() throws Exception {
         stack.empilhar(10);
         stack.empilhar(20);
         stack.desempilhar();
@@ -35,20 +35,20 @@ public class StackTest {
         assertTrue(stack.estaVazia());
     }
 
-    public void testStackIsNotEmptyAfterPushingElements() {
+    public void testeNaoEstaVazia() {
         stack.empilhar(10);
         stack.empilhar(20);
         assertFalse(stack.estaVazia());
     }
 
-    public void testElementsArePushedCorrectly() {
+    public void testeEmpilhaCorretamente() {
         stack.empilhar(10);
         stack.empilhar(20);
         stack.empilhar(30);
         assertEquals(3, stack.tamanho());
     }
 
-    public void testElementsArePoppedCorrectly() throws Exception {
+    public void testeDesempilhaCorretamente() throws Exception {
         stack.empilhar(10);
         stack.empilhar(20);
         stack.empilhar(30);
@@ -57,7 +57,7 @@ public class StackTest {
         assertEquals(10, stack.desempilhar());
     }
 
-    public void testExceptionIsThrownWhenPoppingFromEmptyStack() {
+    public void testeExceptionAoDesempilhar() {
         assertThrows(Exception.class, () -> stack.desempilhar());
     }
 
